@@ -2,7 +2,6 @@ import io
 import streamlit as st
 from PIL import Image
 import numpy as np
-from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropout
 from tensorflow.keras import utils
 from tensorflow.keras.preprocessing import image
