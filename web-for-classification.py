@@ -3,13 +3,13 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 #import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropout
-from tensorflow.keras import utils
+#from tensorflow.keras.models import Sequential
+#from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropout
+#from tensorflow.keras import utils
 from tensorflow.keras.preprocessing import image
-from tensorflow.keras.preprocessing import image_dataset_from_directory
-import matplotlib.pyplot as plt
-from google.colab import files
+#from tensorflow.keras.preprocessing import image_dataset_from_directory
+#import matplotlib.pyplot as plt
+#from google.colab import files
 
 def load_model():
     return dog-breeds.h5
