@@ -1,13 +1,30 @@
 import io
 import streamlit as st
 from PIL import Image
-from tensorflow.keras.applications import EfficientNetB0
+import numpy as np
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropout
+from tensorflow.keras import utils
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
-import numpy as np
 
 def load_model():
-    return open("dog_breeds.h5")
+    model = Sequential()
+    model.add(Conv2D(16, (5, 5), padding='same', input_shape=(100, 100, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Conv2D(32, (5, 5), activation='relu', padding='same'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Conv2D(64, (5, 5), activation='relu', padding='same'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Conv2D(128, (5, 5), activation='relu', padding='same'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Flatten())
+    model.add(Dense(1024, activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(256, activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(131, activation='softmax'))
+    return model.load_weights("dog_breeds.h5")
 
 def preprocess_image(img):
     img = img.resize((224, 224))
