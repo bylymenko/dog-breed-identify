@@ -9,7 +9,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing import image_dataset_from_directory
 
 def load_model():
-    return dog_breeds.h5
+    return open("dog_breeds.h5")
 
 def preprocess_image(img):
     img = img.resize((224, 224))
