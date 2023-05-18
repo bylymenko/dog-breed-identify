@@ -7,7 +7,7 @@ from tensorflow.keras.applications.efficientnet import preprocess_input, decode_
 import numpy as np
 
 def preprocess_image(img):
-    img = img.resize((224, 224))
+    img = img.resize((100, 100))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
