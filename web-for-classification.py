@@ -37,4 +37,5 @@ if result:
     preds = model.predict(x)
     st.write('**Результати розпізнавання:**')
     # print_predictions(preds)
+    st.write(type(preds))
     st.write(preds)
